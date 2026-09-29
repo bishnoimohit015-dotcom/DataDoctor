@@ -14,8 +14,8 @@ st.caption("A beginner-friendly CSV data quality analyzer")
 uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 if uploaded_file is not None:
     try:
-      df = pd.read_csv(uploaded_file)
-      results = analyze_dataframe(df)
+            df = pd.read_csv(uploaded_file)
+            results = analyze_dataframe(df)
     except pd.errors.EmptyDataError:
         st.error("The uploaded CSV file is empty.")
         st.stop()

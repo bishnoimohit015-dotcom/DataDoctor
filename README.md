@@ -1,73 +1,140 @@
-Create a professional but concise README.md for my GitHub project called "DataDoctor".
+# DataDoctor
 
-Project context:
-- DataDoctor is a beginner-friendly CSV data quality analysis tool.
-- It is built with Python, Pandas, and Streamlit.
-- The project is intentionally simple because it is a learning project.
-- Users upload a CSV file through the Streamlit interface.
-- The application analyzes the uploaded DataFrame and displays:
-  1. Number of rows
-  2. Number of columns
-  3. Column names
-  4. Detected data types
-  5. Missing-value count for each column
-  6. Duplicate-row count
-  7. Basic statistics for numerical columns
-  8. A preview of the uploaded data
-- The application handles empty CSV files and malformed CSV files with user-friendly error messages instead of crashing.
-- It does NOT currently perform data cleaning, machine learning, authentication, database operations, or AI analysis.
-- Future improvements may include outlier detection, a data-quality score, visualizations, downloadable reports, and automated tests.
+DataDoctor is a beginner-friendly CSV data-quality analysis tool built with Python, Pandas, and Streamlit. It allows users to upload a CSV file and inspect common quality indicators through a simple web interface.
 
-Tech stack:
-- Python 3.11
-- Pandas
-- Streamlit
-- Git
-- GitHub
+This is an intentionally small learning project focused on understanding DataFrames, CSV analysis, error handling, Git, and basic application development.
 
-Repository:
-https://github.com/bishnoimohit015-dotcom/DataDoctor
+## Features
 
-Current project structure:
+DataDoctor currently provides:
 
+- CSV file upload through a Streamlit interface
+- Total row and column counts
+- Column names and detected data types
+- Missing-value count for each column
+- Duplicate-row count
+- Basic statistics for numerical columns
+- Preview of the uploaded dataset
+- User-friendly messages for empty or malformed CSV files
+
+## Tech Stack
+
+- **Python 3.11** — application language
+- **Pandas** — CSV loading and DataFrame analysis
+- **Streamlit** — web interface
+- **Git and GitHub** — version control and repository hosting
+
+## Project Structure
+
+```text
 DataDoctor/
 ├── data/
-│   └── sample.csv
-├── app.py
-├── analyzer.py
-├── requirements.txt
-├── README.md
-└── .gitignore
+│   └── sample.csv       # Sample CSV for local analysis
+├── app.py               # Streamlit application
+├── analyzer.py          # Command-line analysis of the sample CSV
+├── requirements.txt     # Python dependencies
+├── README.md             # Project documentation
+└── .gitignore            # Files excluded from version control
+```
 
-The README must contain these sections:
+## Setup and Installation
 
-1. Project title and short description
-2. Features
-3. Tech Stack
-4. Project Structure
-5. Setup and Installation
-6. How to Run
-7. How to Use
-8. Error Handling
-9. Current Limitations
-10. Future Improvements
-11. Learning Goals
+The following instructions are for Windows PowerShell.
 
-Use these exact setup commands:
+### 1. Clone the repository
 
+```powershell
 git clone https://github.com/bishnoimohit015-dotcom/DataDoctor.git
 cd DataDoctor
+```
 
-Windows PowerShell:
+This downloads the repository and moves the terminal into the project directory.
+
+### 2. Create a virtual environment
+
+```powershell
 py -m venv .venv
+```
+
+A virtual environment keeps this project's packages separate from other Python projects.
+
+### 3. Activate the virtual environment
+
+```powershell
 .venv\Scripts\Activate.ps1
+```
+
+After activation, `(.venv)` should appear at the beginning of the terminal prompt.
+
+### 4. Install the dependencies
+
+```powershell
 python -m pip install -r requirements.txt
+```
+
+This installs the versions of Pandas and Streamlit specified by the project.
+
+## How to Run
+
+With the virtual environment active, start the Streamlit application:
+
+```powershell
 python -m streamlit run app.py
+```
 
-Explain briefly what each setup step does.
+Streamlit will start a local development server and open the application in a web browser.
 
-Keep the README accurate to the current implementation. Do not claim that features such as outlier detection, data visualization, automated tests, downloadable reports, or data cleaning are already implemented.
+## How to Use
 
-Make the README suitable for a third-year B.Tech CSE student's beginner portfolio project. Keep it professional and clear without excessive marketing language.
+1. Start the application using the command above.
+2. Select **Browse files** in the Streamlit interface.
+3. Upload a file with a `.csv` extension.
+4. Review the dataset overview, column information, missing values, duplicate count, numerical statistics, and data preview.
 
-Make sure every Markdown code block is correctly opened and closed.
+A deliberately imperfect example is available at `data/sample.csv` for testing.
+
+## Error Handling
+
+DataDoctor currently handles two common CSV problems:
+
+- **Empty files:** displays a message explaining that the uploaded CSV is empty.
+- **Malformed CSV data:** displays a message explaining that the file could not be parsed as a valid CSV.
+
+These errors are shown in the interface instead of allowing the application to crash with a traceback.
+
+## Current Limitations
+
+DataDoctor is currently an analysis-only learning project. It does not:
+
+- Clean, modify, or export uploaded data
+- Detect outliers or calculate a data-quality score
+- Produce charts or other visualizations
+- Generate downloadable reports
+- Include automated tests
+- Use machine learning or AI
+- Provide authentication or database storage
+
+Error handling currently focuses on empty and malformed CSV files; other file or encoding problems may not yet have custom messages.
+
+## Future Improvements
+
+Possible future additions include:
+
+- Outlier detection for numerical columns
+- A transparent data-quality score
+- Missing-value and distribution visualizations
+- Downloadable analysis reports
+- Additional file-validation messages
+- Automated tests for the analysis logic
+
+## Learning Goals
+
+This project was created to practise:
+
+- Reading and inspecting CSV files with Pandas
+- Working with DataFrames, missing values, duplicates, and summary statistics
+- Building a simple interactive interface with Streamlit
+- Handling predictable input errors gracefully
+- Managing dependencies with a virtual environment and `requirements.txt`
+- Using Git commits and GitHub to track project development
+- Documenting a software project clearly
